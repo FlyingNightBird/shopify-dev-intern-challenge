@@ -1,0 +1,48 @@
+{% extends 'iteminfo/base.html' %}
+
+
+{% block title %}
+    item - {{ item }}
+{% endblock %}
+
+{% block content %}
+    <article>
+        <div class="row">
+            <div class="offset-by-two eight columns">
+                <h2>{{ item }}</h2>
+                <ul class="inline">
+                        <li>
+                            <a href="{{ item.get_update_url }}"
+                               class="button button-primary">
+                                Edit item</a></li>
+                        <li>
+                            <a href="{{ item.get_delete_url }}"
+                               class="button button-primary">
+                                Delete item</a></li>
+                </ul>
+
+                <section>
+                    <table>
+                        <tr>
+                            <th>Item Name:</th>
+                            <td>{{ item.item_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Item Label:</th>
+                            <td>{{ item.item_label }}</td>
+                        </tr>
+                        {% if item.item_disambiguator %}
+                        <tr>
+                            <th>Disambiguator:</th>
+                            <td>{{ item.item_disambiguator }}</td>
+                        </tr>
+                        {% endif %}
+                    </table>
+                </section>
+
+
+            </div>
+        </div> <!-- row -->
+
+    </article>
+{% endblock %}

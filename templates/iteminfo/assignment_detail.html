@@ -1,0 +1,45 @@
+{% extends 'iteminfo/base.html' %}
+
+{% block title %}
+    Assignment - {{ assignment }}
+{% endblock %}
+
+{% block content %}
+    <article>
+        <div class="row">
+            <div class="offset-by-two eight columns">
+                <h2>{{ assignment }}</h2>
+                <ul class="inline">
+                    <li>
+                        <a href="{{ assignment.get_update_url }}"
+                           class="button button-primary">
+                            Edit Assignment</a></li>
+                    <li>
+                        <a href="{{ assignment.get_delete_url }}"
+                           class="button button-primary">
+                            Delete Assignment</a></li>
+                </ul>
+
+                   <section>
+        <table>
+            <tr>
+                <th>Warehouse:</th>
+                <td><a href="{{ warehouse.get_absolute_url }}">{{ warehouse }}</a></td>
+            </tr>
+            <tr>
+                <th>Assignment Amount:</th>
+                <td>{{ assignment.assignment_amount }}</td>
+            </tr>
+            <tr>
+                <th>Item:</th>
+                <td><a href="{{ item.get_absolute_url }}">{{ item }}</a></td>
+            </tr>
+        </table>
+
+    </section>
+
+            </div>
+        </div> <!-- row -->
+
+    </article>
+{% endblock %}

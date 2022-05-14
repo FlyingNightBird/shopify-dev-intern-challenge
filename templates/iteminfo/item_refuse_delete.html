@@ -1,0 +1,26 @@
+{% extends 'iteminfo/base.html' %}
+
+{% block title %}
+    Error Deleting Item
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h2>Error Deleting Item</h2>
+        <p>
+            You may not delete Item {{ Item }}.  This
+            instructor is currently assigned to the following
+            assignments:
+        </p>
+
+        <ul>
+            {% for assignment in assignments %}
+            <li><a href="{{ assignment.get_absolute_url }}">{{ assignment }}</a></li>
+            {% endfor %}
+        </ul>
+
+        <p>
+            Return to <a href="{% url 'iteminfo_item_list_urlpattern' %}">Item List</a>.
+        </p>
+    </div>
+{% endblock %}

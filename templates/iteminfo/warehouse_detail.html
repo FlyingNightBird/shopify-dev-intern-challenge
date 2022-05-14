@@ -1,0 +1,52 @@
+{% extends 'iteminfo/base.html' %}
+
+{% block title %}
+    Warehouse - {{ warehouse }}
+{% endblock %}
+
+{% block content %}
+<article>
+  <div class="row">
+  <div class="offset-by-two eight columns">
+    <h2>{{ warehouse }}</h2>
+    <ul class="inline">
+        <li>
+          <a
+              href="{{ warehouse.get_update_url }}"
+              class="button button-primary">
+            Edit Warehouse</a></li>
+        <li>
+          <a
+              href="{{ warehouse.get_delete_url }}"
+              class="button button-primary">
+            Delete Warehouse</a></li>
+    </ul>
+    <section>
+        <table>
+            <tr>
+                <th>Warehouse Number:</th>
+                <td>{{ warehouse.warehouse_number }}</td>
+            </tr>
+            <tr>
+                <th>Warehouse Name:</th>
+                <td>{{ warehouse.warehouse_name }}</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h3>Assignments</h3>
+        <ul>
+            {% for assignment in assignment_list %}
+                <li>
+                    <a href="{{ assignment.get_absolute_url }}">{{ assignment }}</a>
+                </li>
+            {% empty %}
+                <li><em>There are currently no assignments for this warehouse.</em></li>
+            {% endfor %}
+        </ul>
+    </section>
+  </div></div> <!-- row -->
+
+</article>
+{% endblock %}

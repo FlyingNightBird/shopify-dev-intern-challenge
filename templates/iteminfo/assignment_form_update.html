@@ -1,0 +1,15 @@
+{% extends 'iteminfo/base.html' %}
+
+{% block title %}
+    Update Assignment
+{% endblock %}
+
+{% block content %}
+    <form
+        action="{{ assignment.get_update_url }}"
+        method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button button-primary">Update Assignment</button>
+    </form>
+{% endblock %}

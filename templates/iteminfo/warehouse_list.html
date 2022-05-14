@@ -1,0 +1,25 @@
+{% extends 'iteminfo/base.html' %}
+
+{% block title %}
+    Warehouse List
+{% endblock %}
+
+{% block org_content %}
+  <h2>Warehouse List</h2>
+    <div class="mobile">
+      <a
+          href="{% url 'iteminfo_warehouse_create_urlpattern' %}"
+          class="button button-primary">
+        Create New Warehouse</a>
+    </div>
+  <ul>
+    {% for warehouse in warehouse_list %}
+      <li>
+        <a href="{{ warehouse.get_absolute_url }}">
+          {{ warehouse }}</a>
+      </li>
+    {% empty %}
+      <li><em>There are currently no warehouses available.</em></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'iteminfo/base.html' %}
+
+
+{% block title %}
+    Delete item
+{% endblock %}
+
+{% block content %}
+    <form
+        action="{{ item.get_delete_url }}"
+        method="post">
+        {% csrf_token %}
+        <p>
+            Are you sure that you want to delete
+            item {{ item }}?
+        </p>
+        <a href="{{ item.get_absolute_url }}"
+           class="button button-primary">
+        Cancel</a>
+        <button type="submit" class="button button-primary">Delete item</button>
+    </form>
+{% endblock %}
