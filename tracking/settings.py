@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-9)=qcd^2bh4ne^r&e=s371oy@nklw*64y+2)xe95n=^czg*82@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['shopify-dev-intern-challenge.flyingnightbird.repl.co']
 
 
 # Application definition
